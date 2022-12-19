@@ -6,6 +6,7 @@ use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Auth\PasswordResetController;
 use App\Http\Controllers\FileManagerController;
 use \App\Http\Controllers\RoleController;
+use App\Http\Controllers\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,6 +46,11 @@ Route::middleware('auth:sanctum')->group(function () {
     // File Upload
     Route::post('/file-upload', [FileManagerController::class, 'store']);
     Route::get('/files', [FileManagerController::class, 'index']);
+    
+
+    Route::apiResources([
+        'products' => ProductController::class,
+    ]);
 
 
 });
